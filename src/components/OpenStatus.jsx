@@ -13,11 +13,13 @@ export default function OpenStatus({ className = '', dotClassName = '' }) {
   const dotColor =
     status === null
       ? 'bg-gray-400'
-      : !status.isOpen
-        ? 'bg-red-500'
-        : status.closingSoon
-          ? 'bg-yellow-500'
-          : 'bg-green-500'
+      : status.openingSoon
+        ? 'bg-amber-500'
+        : !status.isOpen
+          ? 'bg-red-500'
+          : status.closingSoon
+            ? 'bg-yellow-500'
+            : 'bg-green-500'
 
   return (
     <p className={`inline-flex items-baseline gap-1 ${className}`}>
