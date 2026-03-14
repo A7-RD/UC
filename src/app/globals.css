@@ -53,16 +53,19 @@
 
 html {
   scroll-behavior: smooth;
+  min-height: 100%;
 }
 
 :root {
   color: #3d2a1d;
-  background: var(--color-footer);
+  background: linear-gradient(to bottom, var(--color-tangerine), var(--color-footer));
+  min-height: 100%;
 }
 
 body {
   margin: 0;
   min-width: 320px;
+  min-height: 100%;
 }
 
 /* Embla Carousel – Contents section infinite scroll */
