@@ -4,18 +4,34 @@ import Link from 'next/link'
 import { useState, useRef, useEffect } from 'react'
 import MenusDrawer from './MenusDrawer'
 
-const linkClass =
-  'relative inline-flex shrink-0 text-2xl font-medium leading-6 text-white focus:outline-none after:absolute after:right-0 after:left-0 after:-bottom-1 after:h-0.5 after:bg-transparent after:transition-colors after:duration-200 hover:after:bg-white focus-visible:after:bg-white'
+const linkClassBase =
+  'relative inline-flex shrink-0 text-2xl font-medium leading-6 focus:outline-none transition-colors duration-200 after:absolute after:right-0 after:left-0 after:-bottom-1 after:h-0.5 after:bg-transparent after:transition-colors after:duration-200'
 
 export default function NavWithMenusDrawer() {
   const [menusOpen, setMenusOpen] = useState(false)
+  const [scrolledPastHero, setScrolledPastHero] = useState(false)
   const menuButtonRef = useRef(null)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolledPastHero(window.scrollY >= window.innerHeight)
+    }
+    handleScroll()
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   useEffect(() => {
     if (!menusOpen) {
       menuButtonRef.current?.focus()
     }
   }, [menusOpen])
+
+  const linkClass = `${linkClassBase} ${
+    scrolledPastHero
+      ? 'text-black hover:after:bg-black focus-visible:after:bg-black'
+      : 'text-white hover:after:bg-white focus-visible:after:bg-white'
+  }`
 
   return (
     <>
