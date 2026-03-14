@@ -101,7 +101,7 @@ export default function MenusDrawer({ isOpen, onClose }) {
         aria-modal={isOpen}
         role="dialog"
       >
-        <div className="flex flex-col min-h-0 flex-1 px-6 pt-8 pb-6">
+        <div className="flex flex-col min-h-0 flex-1 px-6 pt-8 pb-6 max-w-[800px] mx-auto w-full">
           <div
             className="flex-1 min-h-0 overflow-auto pt-8 pb-8"
             style={{
