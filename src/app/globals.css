@@ -13,6 +13,7 @@
   --font-sans: 'forma-djr-text', 'forma', ui-sans-serif, system-ui, sans-serif;
   --font-sans--font-feature-settings: 'ss01', 'ss02', 'ss03';
   --font-mono: 'forma-djr-mono', 'forma-mono', ui-monospace, monospace;
+  --font-deck: 'forma-djr-deck', 'forma-djr-text', ui-sans-serif, system-ui, sans-serif;
   --font-display: 'editorial-new', Georgia, serif;
 
   --tracking-micro-tight: -0.01em;

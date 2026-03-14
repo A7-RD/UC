@@ -3,7 +3,7 @@ import ContentsCarousel from './ContentsCarousel'
 export default function Contents() {
   return (
     <section
-      className="w-full min-h-screen bg-tangerine p-0 flex flex-col gap-4"
+      className="w-full min-h-screen h-fit bg-tangerine p-0 flex flex-col gap-4"
       aria-label="Contents"
     >
       <div className="pt-24 px-4 pb-0">

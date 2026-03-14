@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import UnionSvg from './UnionSvg'
 import OpenStatus from './OpenStatus'
 
@@ -11,21 +10,7 @@ export default function Hero() {
         className="absolute inset-0 bg-black/33"
         aria-hidden="true"
       />
-      <header className="relative z-10 flex flex-1 flex-col gap-4 justify-between p-4 bg-hero-header min-h-0">
-        <nav className="sticky top-0 z-10 flex gap-0 items-start shrink-0 justify-between bg-hero-header -mx-4 -mt-4 px-4 pt-4" aria-label="Main">
-          <Link
-            href="#menus"
-            className="text-2xl font-medium leading-6 text-white underline underline-offset-4 decoration-2 decoration-transparent hover:decoration-white focus:decoration-white focus:outline-none transition-colors duration-200"
-          >
-            MENUS
-          </Link>
-          <Link
-            href="#reservations"
-            className="text-2xl font-medium leading-6 text-white underline underline-offset-4 decoration-2 decoration-transparent hover:decoration-white focus:decoration-white focus:outline-none transition-colors duration-200"
-          >
-            RESERVATIONS
-          </Link>
-        </nav>
+      <header className="relative z-10 flex flex-1 flex-col gap-4 justify-end p-4 bg-hero-header min-h-0">
         <div className="flex flex-nowrap gap-5 items-start shrink-0">
           <div className="flex flex-col items-start w-fit shrink-0">
             <p className="text-base font-bold leading-5 text-white whitespace-pre-line">

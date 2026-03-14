@@ -23,7 +23,7 @@ Seven Days a Week`}
           </p>
           <div className="flex flex-col gap-0 items-start shrink-0 h-fit">
             <a
-              href="https://instagram.com/urbanocafe"
+              href="https://www.instagram.com/urbanocafe"
               target="_blank"
               rel="noopener noreferrer"
               className="text-base leading-5 text-black underline underline-offset-4 decoration-2 decoration-transparent hover:decoration-black focus:decoration-black focus:outline-none transition-colors duration-200"
@@ -31,12 +31,12 @@ Seven Days a Week`}
               Instagram
             </a>
             <a
-              href="https://tiktok.com/@urbanocafe"
+              href="https://www.facebook.com/UrbanoCafe"
               target="_blank"
               rel="noopener noreferrer"
               className="text-base leading-5 text-black underline underline-offset-4 decoration-2 decoration-transparent hover:decoration-black focus:decoration-black focus:outline-none transition-colors duration-200"
             >
-              Tik-tok
+              Facebook
             </a>
           </div>
         </div>
