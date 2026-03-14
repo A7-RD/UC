@@ -57,7 +57,7 @@ html {
 
 :root {
   color: #3d2a1d;
-  background: #f8f3eb;
+  background: var(--color-footer);
 }
 
 body {

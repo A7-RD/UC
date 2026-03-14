@@ -92,16 +92,17 @@ export default function MenusDrawer({ isOpen, onClose }) {
         }`}
       />
       {/* Sliding white panel */}
-      <div
-        className={`fixed bottom-0 left-6 right-6 z-40 bg-white shadow-[0_-4px_24px_rgba(0,0,0,0.12)] transition-transform duration-300 ease-out flex flex-col ${
-          isOpen ? 'translate-y-0' : 'translate-y-full'
-        }`}
-        style={{ maxHeight: 'min(80vh, 560px)', minHeight: 'min(80vh, 560px)' }}
-        aria-hidden={!isOpen}
-        aria-modal={isOpen}
-        role="dialog"
-      >
-        <div className="flex flex-col min-h-0 flex-1 px-6 pt-8 pb-6 max-w-[800px] mx-auto w-full">
+      <div className="fixed bottom-0 left-0 right-0 z-40 px-6 flex justify-center">
+        <div
+          className={`w-full max-w-[800px] bg-white shadow-[0_-4px_24px_rgba(0,0,0,0.12)] transition-transform duration-300 ease-out flex flex-col ${
+            isOpen ? 'translate-y-0' : 'translate-y-full'
+          }`}
+          style={{ maxHeight: 'min(80vh, 560px)', minHeight: 'min(80vh, 560px)' }}
+          aria-hidden={!isOpen}
+          aria-modal={isOpen}
+          role="dialog"
+        >
+        <div className="flex flex-col min-h-0 flex-1 px-6 pt-8 pb-6 w-full">
           <div
             className="flex-1 min-h-0 overflow-auto pt-8 pb-8"
             style={{
@@ -162,6 +163,7 @@ export default function MenusDrawer({ isOpen, onClose }) {
               </section>
             </div>
           </div>
+        </div>
         </div>
       </div>
     </>
