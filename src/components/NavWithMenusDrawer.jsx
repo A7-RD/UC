@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import MenusDrawer from './MenusDrawer'
 
 const linkClass =
@@ -9,22 +9,31 @@ const linkClass =
 
 export default function NavWithMenusDrawer() {
   const [menusOpen, setMenusOpen] = useState(false)
+  const menuButtonRef = useRef(null)
+
+  useEffect(() => {
+    if (!menusOpen) {
+      menuButtonRef.current?.focus()
+    }
+  }, [menusOpen])
 
   return (
     <>
       <nav
-        className="fixed inset-x-0 top-0 z-20 flex shrink-0 items-start justify-between gap-0 bg-hero-header px-4 pt-4 pb-4"
+        className="fixed inset-x-0 top-0 z-50 flex shrink-0 items-start justify-between gap-0 bg-hero-header px-4 pt-4 pb-4"
         aria-label="Main"
       >
         <button
+          ref={menuButtonRef}
           type="button"
-          onClick={() => setMenusOpen(true)}
+          onClick={() => setMenusOpen((prev) => !prev)}
           className={linkClass}
+          aria-expanded={menusOpen}
         >
-          MENUS
+          {menusOpen ? 'CLOSE' : 'MENUS'}
         </button>
         <Link
-          href="https://resy.com/cities/dallas-fort-worth-tx/venues/urbano-cafe?seats=2&date=2026-03-14"
+          href="https://resy.com/cities/dallas-fort-worth-tx/venues/urbano-cafe?seats=2"
           target="_blank"
           rel="noopener noreferrer"
           className={linkClass}

@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import MenuItem from './MenuItem'
 
 const ANTIPASTI = [
@@ -41,6 +41,8 @@ const ENTREES = [
 ]
 
 export default function MenusDrawer({ isOpen, onClose }) {
+  const backdropRef = useRef(null)
+
   useEffect(() => {
     if (isOpen) {
       document.documentElement.style.overflow = 'hidden'
@@ -55,10 +57,33 @@ export default function MenusDrawer({ isOpen, onClose }) {
     }
   }, [isOpen])
 
+  useEffect(() => {
+    if (!isOpen) return
+    backdropRef.current?.focus()
+  }, [isOpen])
+
+  useEffect(() => {
+    if (!isOpen) return
+    function handleKeyDown(e) {
+      if (e.key === 'Escape') {
+        onClose()
+        return
+      }
+      if (e.key !== 'Tab') return
+      const backdrop = backdropRef.current
+      if (!backdrop || document.activeElement !== backdrop) return
+      e.preventDefault()
+      backdrop.focus()
+    }
+    document.addEventListener('keydown', handleKeyDown)
+    return () => document.removeEventListener('keydown', handleKeyDown)
+  }, [isOpen, onClose])
+
   return (
     <>
       {/* Backdrop */}
       <button
+        ref={backdropRef}
         type="button"
         aria-label="Close menus"
         onClick={onClose}

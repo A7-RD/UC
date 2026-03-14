@@ -1,5 +1,9 @@
 const sample = 'The quick brown fox jumps over the lazy dog.'
 
+export const metadata = {
+  robots: { index: false, follow: false },
+}
+
 export default function DesignSystemPage() {
   return (
     <main className="min-h-screen p-6 md:p-8 font-sans text-espresso bg-cream">
