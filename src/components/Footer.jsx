@@ -3,7 +3,7 @@ import OpenStatus from './OpenStatus'
 
 export default function Footer() {
   return (
-    <footer className="flex flex-col w-full">
+    <footer className="flex flex-col w-full pb-[env(safe-area-inset-bottom)]">
       <div className="p-4 w-full bg-footer">
         <UnionSvg fullLogoOnly />
       </div>

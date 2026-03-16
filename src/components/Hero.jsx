@@ -26,7 +26,9 @@ Seven Days a Week`}
           </p>
         </div>
       </header>
-      <div className="relative z-10 p-4 w-full bg-tangerine shrink-0">
+      <div
+        className="relative z-10 p-4 w-full bg-tangerine shrink-0 pb-[max(env(safe-area-inset-bottom),5rem)]"
+      >
         <UnionSvg />
       </div>
     </section>
