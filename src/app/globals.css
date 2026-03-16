@@ -70,7 +70,7 @@ body {
   min-width: 320px;
   min-height: 100%;
   position: relative;
-  /* No solid background so Safari can show the transparent glass bar effect */
+  background-color: var(--color-tangerine);
 }
 
 /* Embla Carousel – Contents section infinite scroll */
