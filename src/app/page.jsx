@@ -3,8 +3,9 @@ import Contents from '../components/Contents'
 import Footer from '../components/Footer'
 import NavWithMenusDrawer from '../components/NavWithMenusDrawer'
 
-export default function HomePage({ searchParams }) {
-  const showGrid = searchParams?.grid === '1'
+export default async function HomePage({ searchParams }) {
+  const params = await searchParams
+  const showGrid = params?.grid === '1'
   return (
     <main className="min-h-screen font-sans text-espresso antialiased">
       <NavWithMenusDrawer />
