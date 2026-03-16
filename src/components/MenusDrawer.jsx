@@ -1,8 +1,10 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { PaperTexture, paperTexturePresets } from '@paper-design/shaders-react'
 import MenuItem from './MenuItem'
+
+const BACKDROP_EXIT_MS = 300
 
 const ANTIPASTI = [
   { title: 'Bruschetta Caponata', description: 'Eggplant, Tomato, Celery, Capers', price: '$12' },
@@ -43,6 +45,19 @@ const ENTREES = [
 
 export default function MenusDrawer({ isOpen, onClose }) {
   const backdropRef = useRef(null)
+  const [backdropExiting, setBackdropExiting] = useState(false)
+
+  useEffect(() => {
+    if (isOpen) {
+      setBackdropExiting(false)
+    } else {
+      setBackdropExiting(true)
+      const t = setTimeout(() => setBackdropExiting(false), BACKDROP_EXIT_MS)
+      return () => clearTimeout(t)
+    }
+  }, [isOpen])
+
+  const showBackdrop = isOpen || backdropExiting
 
   useEffect(() => {
     if (isOpen) {
@@ -82,16 +97,18 @@ export default function MenusDrawer({ isOpen, onClose }) {
 
   return (
     <>
-      {/* Backdrop */}
-      <button
-        ref={backdropRef}
-        type="button"
-        aria-label="Close menus"
-        onClick={onClose}
-        className={`fixed inset-0 z-30 bg-black/40 backdrop-blur-sm transition-opacity duration-300 ${
-          isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
-        }`}
-      />
+      {/* Backdrop: unmount when fully closed so iOS Safari doesn't keep a composited layer over the native bar */}
+      {showBackdrop && (
+        <button
+          ref={backdropRef}
+          type="button"
+          aria-label="Close menus"
+          onClick={onClose}
+          className={`fixed inset-0 z-30 bg-black/40 backdrop-blur-sm transition-opacity duration-300 ${
+            isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+          }`}
+        />
+      )}
       {/* Sliding white panel */}
       <div className="fixed bottom-0 left-0 right-0 z-40 px-6 flex justify-center pointer-events-none">
         <div
