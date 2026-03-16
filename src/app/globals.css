@@ -5,7 +5,7 @@
 
   --color-cream: #f8f3eb;
   --color-sand: #f1e2cc;
-  --color-espresso: #3f3832;
+  --color-espresso: #1a1612;
   --color-rust: #c85f37;
   --color-peach: #eaa571;
   --color-tangerine: #e34f25;
@@ -60,7 +60,7 @@ html.site-root {
 }
 
 :root {
-  color: #3d2a1d;
+  color: var(--color-espresso);
 }
 
 body {
@@ -68,13 +68,6 @@ body {
   min-width: 320px;
   min-height: 100%;
   position: relative;
-}
-
-/* Full-page background behind all content so it can't be overridden */
-.site-bg-gradient {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
   background-color: var(--color-tangerine);
 }
 

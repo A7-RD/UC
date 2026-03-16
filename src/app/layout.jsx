@@ -33,7 +33,6 @@ export default function RootLayout({ children }) {
         <link rel="stylesheet" href="https://use.typekit.net/fme3fbi.css" />
       </head>
       <body>
-        <div className="site-bg-gradient" aria-hidden />
         {children}
       </body>
     </html>
