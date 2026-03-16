@@ -9,9 +9,10 @@
     "start": "next start"
   },
   "dependencies": {
+    "@paper-design/shaders-react": "^0.0.72",
     "embla-carousel-auto-scroll": "^8.6.0",
     "embla-carousel-react": "^8.6.0",
-    "next": "^14.2.0",
+    "next": "^16.1.6",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },

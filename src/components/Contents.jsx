@@ -1,5 +1,8 @@
 import ContentsCarousel from './ContentsCarousel'
 
+const TABLE_ASPECT_RATIO = 654 / 570
+const TABLE_SIZE = 475
+
 export default function Contents() {
   return (
     <section
@@ -14,6 +17,16 @@ export default function Contents() {
         </p>
       </div>
       <ContentsCarousel />
+      <div className="flex h-[75vh] w-fill items-end justify-center p-12">
+        <img
+          src="/assets/Table.svg"
+          alt=""
+          className="h-auto w-auto"
+          style={{ width: TABLE_SIZE }}
+          width={TABLE_SIZE}
+          height={Math.round(TABLE_SIZE / TABLE_ASPECT_RATIO)}
+        />
+      </div>
     </section>
   )
 }

@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 import AutoScroll from 'embla-carousel-auto-scroll'
 
@@ -17,6 +17,7 @@ const CAROUSEL_IMAGES = [
 ]
 
 export default function ContentsCarousel() {
+  const containerRef = useRef(null)
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
       loop: true,
@@ -32,8 +33,41 @@ export default function ContentsCarousel() {
     emblaApi.plugins().autoScroll?.play()
   }, [emblaApi])
 
+  useEffect(() => {
+    const el = containerRef.current
+    const api = emblaApi
+    if (!el || !api) return
+    const autoScroll = api.plugins().autoScroll
+    if (!autoScroll || typeof autoScroll.stop !== 'function') return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries
+        if (entry.isIntersecting) autoScroll.play()
+        else autoScroll.stop()
+      },
+      { threshold: 0.1, rootMargin: '50px' }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [emblaApi])
+
+  useEffect(() => {
+    const api = emblaApi
+    if (!api) return
+    const autoScroll = api.plugins().autoScroll
+    if (!autoScroll || typeof autoScroll.stop !== 'function') return
+
+    const handleVisibility = () => {
+      if (document.hidden) autoScroll.stop()
+      else autoScroll.play()
+    }
+    document.addEventListener('visibilitychange', handleVisibility)
+    return () => document.removeEventListener('visibilitychange', handleVisibility)
+  }, [emblaApi])
+
   return (
-    <div className="contents-embla embla w-full">
+    <div ref={containerRef} className="contents-embla embla w-full">
       <div className="embla__viewport overflow-hidden" ref={emblaRef}>
         <div className="embla__container flex touch-pan-y">
           {CAROUSEL_IMAGES.map((item, i) => (

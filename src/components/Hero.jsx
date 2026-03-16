@@ -4,7 +4,7 @@ import OpenStatus from './OpenStatus'
 export default function Hero() {
   return (
     <section
-      className="relative flex flex-col mx-auto w-full max-w-screen-2xl h-screen bg-[url('/assets/hero-bg.png')] bg-cover bg-center bg-no-repeat"
+      className="relative flex flex-col w-full h-screen bg-[url('/assets/hero-bg.png')] bg-cover bg-center bg-no-repeat"
     >
       <div
         className="absolute inset-0 bg-black/33"

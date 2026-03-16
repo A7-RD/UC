@@ -3,7 +3,7 @@ import OpenStatus from './OpenStatus'
 
 export default function Footer() {
   return (
-    <footer className="flex flex-col w-full max-w-screen-2xl mx-auto">
+    <footer className="flex flex-col w-full">
       <div className="p-4 w-full bg-footer">
         <UnionSvg fullLogoOnly />
       </div>
@@ -26,7 +26,7 @@ Seven Days a Week`}
               href="https://www.instagram.com/urbanocafe"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-base leading-5 text-black underline underline-offset-4 decoration-2 decoration-transparent hover:decoration-black focus:decoration-black focus:outline-none transition-colors duration-200"
+              className="text-base leading-5 text-black underline underline-offset-4 decoration-1.5 decoration-transparent hover:decoration-black focus:decoration-black focus:outline-none transition-colors duration-200"
             >
               Instagram
             </a>
@@ -34,14 +34,14 @@ Seven Days a Week`}
               href="https://www.facebook.com/UrbanoCafe"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-base leading-5 text-black underline underline-offset-4 decoration-2 decoration-transparent hover:decoration-black focus:decoration-black focus:outline-none transition-colors duration-200"
+              className="text-base leading-5 text-black underline underline-offset-4 decoration-1.5 decoration-transparent hover:decoration-black focus:decoration-black focus:outline-none transition-colors duration-200"
             >
               Facebook
             </a>
           </div>
         </div>
         <p className="text-base leading-5 text-right text-black shrink-0">
-          ©2022-2026 Urbano Cafe
+          ©2009-2026 Urbano Cafe
         </p>
       </div>
     </footer>

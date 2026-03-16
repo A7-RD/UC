@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
+import { PaperTexture, paperTexturePresets } from '@paper-design/shaders-react'
 import MenuItem from './MenuItem'
 
 const ANTIPASTI = [
@@ -87,17 +88,17 @@ export default function MenusDrawer({ isOpen, onClose }) {
         type="button"
         aria-label="Close menus"
         onClick={onClose}
-        className={`fixed inset-0 z-30 bg-black/40 transition-opacity duration-300 ${
+        className={`fixed inset-0 z-30 bg-black/40 backdrop-blur-sm transition-opacity duration-300 ${
           isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
       />
       {/* Sliding white panel */}
-      <div className="fixed bottom-0 left-0 right-0 z-40 px-6 flex justify-center">
+      <div className="fixed bottom-0 left-0 right-0 z-40 px-6 flex justify-center pointer-events-none">
         <div
-          className={`w-full max-w-[800px] bg-white shadow-[0_-4px_24px_rgba(0,0,0,0.12)] transition-transform duration-300 ease-out flex flex-col ${
+          className={`relative w-full max-w-[800px] bg-mist-400 shadow-[0_-4px_24px_rgba(0,0,0,0.25)] transition-transform duration-500 ease-in-out flex flex-col pointer-events-auto ${
             isOpen ? 'translate-y-0' : 'translate-y-full'
           }`}
-          style={{ maxHeight: 'min(80vh, 560px)', minHeight: 'min(80vh, 560px)' }}
+          style={{ maxHeight: 'min(88vh, 680px)', minHeight: 'min(88vh, 680px)' }}
           aria-hidden={!isOpen}
           aria-modal={isOpen}
           role="dialog"
@@ -112,7 +113,7 @@ export default function MenusDrawer({ isOpen, onClose }) {
                 'linear-gradient(to bottom, transparent 0, black 32px, black calc(100% - 32px), transparent 100%)',
             }}
           >
-            <h2 className="font-display text-6xl leading-16 tracking-tighter text-espresso text-center m-0 flex flex-col justify-center items-center">ANTIPASTI</h2>
+            <h2 className="font-display text-6xl leading-16 tracking-tighter text-espresso text-center m-0 flex flex-col justify-center items-center menu-drawer-blur">ANTIPASTI</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-3 gap-y-3 mt-4 w-full justify-items-center">
               {ANTIPASTI.map((item) => (
                 <MenuItem
@@ -123,7 +124,7 @@ export default function MenusDrawer({ isOpen, onClose }) {
                 />
               ))}
             </div>
-            <h2 className="font-display text-6xl leading-16 tracking-tighter text-espresso text-center m-0 flex flex-col justify-center items-center mt-12">SALADS</h2>
+            <h2 className="font-display text-6xl leading-16 tracking-tighter text-espresso text-center m-0 flex flex-col justify-center items-center mt-12 menu-drawer-blur">SALADS</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-x-3 gap-y-3 mt-4 w-full justify-items-center">
               {SALADS.map((item) => (
                 <MenuItem
@@ -136,7 +137,7 @@ export default function MenusDrawer({ isOpen, onClose }) {
             </div>
             <div className="flex flex-col md:flex-row flex-wrap gap-x-6 gap-y-12 mt-12 w-full">
               <section className="flex-1 min-w-0 md:min-w-[280px]">
-                <h2 className="font-display text-6xl leading-16 tracking-tighter text-espresso text-center m-0 flex flex-col justify-center items-center">PASTA</h2>
+                <h2 className="font-display text-6xl leading-16 tracking-tighter text-espresso text-center m-0 flex flex-col justify-center items-center menu-drawer-blur">PASTA</h2>
                 <div className="flex flex-col gap-6 mt-4 justify-start items-center">
                   {PASTA.map((item) => (
                     <MenuItem
@@ -149,7 +150,7 @@ export default function MenusDrawer({ isOpen, onClose }) {
                 </div>
               </section>
               <section className="flex-1 min-w-0 md:min-w-[280px]">
-                <h2 className="font-display text-6xl leading-16 tracking-tighter text-espresso text-center m-0 flex flex-col justify-center items-center">ENTREES</h2>
+                <h2 className="font-display text-6xl leading-16 tracking-tighter text-espresso text-center m-0 flex flex-col justify-center items-center menu-drawer-blur">ENTREES</h2>
                 <div className="flex flex-col gap-6 mt-4 justify-start items-center">
                   {ENTREES.map((item) => (
                     <MenuItem
@@ -164,6 +165,26 @@ export default function MenusDrawer({ isOpen, onClose }) {
             </div>
           </div>
         </div>
+          {isOpen && (
+            <PaperTexture
+              {...paperTexturePresets[0].params}
+              colorFront="#9e9e9e"
+              scale={.60}
+              contrast={.10}
+              roughness={.10}
+              fiber={.50}
+              fiberSize={.10}
+              crumples={0}
+              crumpleSize={0}
+              folds={0}
+              fade={0}
+              drops={0}
+              className="pointer-events-none absolute inset-0 rounded-none z-10"
+              style={{ mixBlendMode: 'overlay' }}
+              width="100%"
+              height="100%"
+            />
+          )}
         </div>
       </div>
     </>

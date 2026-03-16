@@ -1,6 +1,6 @@
 export default function MenuItem({ title, description, price, className = '' }) {
   return (
-    <div className={`flex flex-col gap-1 text-center text-espresso min-w-0 w-full max-w-[300px] ${className}`.trim()}>
+    <div className={`flex flex-col gap-1 text-center text-espresso min-w-0 w-full max-w-[300px] menu-drawer-blur ${className}`.trim()}>
       <p className="font-deck text-lg uppercase leading-5 font-semibold text-balance">
         {title}
       </p>

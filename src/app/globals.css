@@ -1,9 +1,11 @@
 @import 'tailwindcss';
 
 @theme {
+  --height-half-screen: 50vh;
+
   --color-cream: #f8f3eb;
   --color-sand: #f1e2cc;
-  --color-espresso: #3d2a1d;
+  --color-espresso: #3f3832;
   --color-rust: #c85f37;
   --color-peach: #eaa571;
   --color-tangerine: #e34f25;
@@ -68,13 +70,12 @@ body {
   position: relative;
 }
 
-/* Full-page gradient behind all content so it can't be overridden */
+/* Full-page background behind all content so it can't be overridden */
 .site-bg-gradient {
   position: fixed;
   inset: 0;
   z-index: -1;
-  background-color: #d9b470;
-  background-image: linear-gradient(to bottom, #e34f25, #d9b470);
+  background-color: var(--color-tangerine);
 }
 
 /* Embla Carousel – Contents section infinite scroll */
@@ -100,4 +101,14 @@ body {
   height: auto;
   padding-left: var(--slide-spacing, 8px);
   box-sizing: border-box;
+}
+
+/* Menu drawer blur: Chrome uses 0.4px; Safari/WebKit renders blur stronger, so use a lighter value */
+.menu-drawer-blur {
+  filter: blur(0.4px);
+}
+@supports (-webkit-hyphens: none) {
+  .menu-drawer-blur {
+    filter: none;
+  }
 }
