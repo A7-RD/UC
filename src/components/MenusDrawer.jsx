@@ -63,13 +63,16 @@ export default function MenusDrawer({ isOpen, onClose }) {
     if (isOpen) {
       document.documentElement.style.overflow = 'hidden'
       document.body.style.overflow = 'hidden'
+      document.body.style.backgroundColor = 'rgba(0,0,0,0.4)'
     } else {
       document.documentElement.style.overflow = ''
       document.body.style.overflow = ''
+      document.body.style.backgroundColor = ''
     }
     return () => {
       document.documentElement.style.overflow = ''
       document.body.style.overflow = ''
+      document.body.style.backgroundColor = ''
     }
   }, [isOpen])
 
@@ -104,7 +107,7 @@ export default function MenusDrawer({ isOpen, onClose }) {
           type="button"
           aria-label="Close menus"
           onClick={onClose}
-          className={`fixed inset-0 z-30 bg-black/40 backdrop-blur-sm transition-opacity duration-300 ${
+          className={`fixed inset-0 z-30 h-lvh min-h-lvh bg-black/40 backdrop-blur-sm transition-opacity duration-300 ${
             isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
           }`}
         />
@@ -115,7 +118,7 @@ export default function MenusDrawer({ isOpen, onClose }) {
           className={`relative w-full max-w-[800px] bg-mist-400 shadow-[0_-4px_24px_rgba(0,0,0,0.25)] transition-transform duration-500 ease-in-out flex flex-col pointer-events-auto ${
             isOpen ? 'translate-y-0' : 'translate-y-full'
           }`}
-          style={{ maxHeight: 'min(88vh, 680px)', minHeight: 'min(88vh, 680px)' }}
+          style={{ maxHeight: 'min(88svh, 680px)', minHeight: 'min(88svh, 680px)' }}
           aria-hidden={!isOpen}
           aria-modal={isOpen}
           role="dialog"

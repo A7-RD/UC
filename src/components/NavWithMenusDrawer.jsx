@@ -5,6 +5,7 @@ import { useState, useRef, useEffect } from 'react'
 import MenusDrawer from './MenusDrawer'
 
 const THEME_COLOR_TANGERINE = '#e34f25'
+const THEME_COLOR_DRAWER = '#e5e7eb'
 
 const linkClassBase =
   'relative inline-flex shrink-0 text-2xl font-medium leading-6 transition-colors duration-200 focus:outline-none after:absolute after:right-0 after:left-0 after:-bottom-1 after:h-0.5 after:bg-transparent after:transition-colors after:duration-200'
@@ -24,11 +25,12 @@ export default function NavWithMenusDrawer() {
   }, [])
 
   useEffect(() => {
+    const meta = document.querySelector('meta[name="theme-color"]')
+    if (meta) {
+      meta.setAttribute('content', menusOpen ? THEME_COLOR_DRAWER : THEME_COLOR_TANGERINE)
+    }
     if (!menusOpen) {
       menuButtonRef.current?.focus()
-      // Force Safari to reapply theme-color so status bar doesn't keep the overlay tint
-      const meta = document.querySelector('meta[name="theme-color"]')
-      if (meta) meta.setAttribute('content', THEME_COLOR_TANGERINE)
     }
   }, [menusOpen])
 

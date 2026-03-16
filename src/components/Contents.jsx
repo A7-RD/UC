@@ -6,7 +6,7 @@ const TABLE_SIZE = 475
 export default function Contents() {
   return (
     <section
-      className="w-full min-h-screen h-fit bg-tangerine p-0 flex flex-col gap-4"
+      className="w-full min-h-svh h-fit bg-tangerine p-0 flex flex-col gap-4"
       aria-label="Contents"
     >
       <div className="pt-24 px-4 pb-0">
@@ -17,7 +17,7 @@ export default function Contents() {
         </p>
       </div>
       <ContentsCarousel />
-      <div className="flex h-[75vh] w-fill items-end justify-center p-12">
+      <div className="flex h-[75svh] w-fill items-end justify-center p-12">
         <img
           src="/assets/Table.svg"
           alt=""
