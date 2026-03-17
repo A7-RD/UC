@@ -14,8 +14,8 @@ export default function Hero() {
         <div className="flex flex-nowrap gap-5 items-start shrink-0">
           <div className="flex flex-col items-start w-fit shrink-0">
             <p className="text-base font-bold leading-5 text-white whitespace-pre-line">
-              {`5pm to Midnight
-Seven Days a Week`}
+              {`Open Nightly
+5pm to Midnight`}
             </p>
             <OpenStatus className="text-base leading-5 text-white" />
           </div>
