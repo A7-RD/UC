@@ -1,11 +1,31 @@
+'use client'
+
+import { useEffect, useState } from 'react'
 import UnionSvg from './UnionSvg'
 import OpenStatus from './OpenStatus'
 
+const PARALLAX_FACTOR = 0.25
+
 export default function Hero() {
+  const [offset, setOffset] = useState(0)
+
+  useEffect(() => {
+    const onScroll = () => setOffset(window.scrollY)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
   return (
-    <section
-      className="relative flex flex-col w-full h-screen bg-[url('/assets/hero-bg.png')] bg-cover bg-center bg-no-repeat"
-    >
+    <section className="relative flex flex-col w-full h-screen overflow-hidden">
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: "url('/assets/hero-bg.png')",
+          transform: `translateY(${offset * PARALLAX_FACTOR}px)`,
+        }}
+        aria-hidden="true"
+      />
       <div
         className="absolute inset-0 bg-black/33"
         aria-hidden="true"
