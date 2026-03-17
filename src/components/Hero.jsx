@@ -21,8 +21,8 @@ Seven Days a Week`}
           </div>
           <p className="w-fit text-base leading-5 text-white whitespace-pre-line shrink-0">
             {`(214) 823-8550
-1410 N Fitzhugh Ave, Dallas TX
-@UrbanoCafé`}
+1410 N Fitzhugh Ave, Dallas
+@UrbanoCafe`}
           </p>
         </div>
       </header>

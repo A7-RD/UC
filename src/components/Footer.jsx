@@ -11,15 +11,15 @@ export default function Footer() {
         <div className="flex flex-wrap flex-1 gap-6 items-start min-w-0 md:gap-6">
           <div className="flex flex-col items-start shrink-0">
             <p className="text-base font-bold leading-5 text-black whitespace-pre-line">
-              {`5pm to Midnight
-Seven Days a Week`}
+              {`Open Nightly
+5pm to Midnight`}
             </p>
             <OpenStatus className="text-base leading-5 text-black" />
           </div>
           <p className="text-base leading-5 text-black whitespace-pre-line shrink-0">
             {`(214) 823-8550
-1410 N Fitzhugh Ave, Dallas TX
-@UrbanoCafé`}
+1410 N Fitzhugh Ave, Dallas
+@UrbanoCafe`}
           </p>
           <div className="flex flex-col gap-0 items-start shrink-0 h-fit">
             <a

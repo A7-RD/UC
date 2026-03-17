@@ -11,9 +11,9 @@ export default function Contents() {
     >
       <div className="pt-24 px-4 pb-0">
         <p className="text-base leading-5 text-black max-w-prose">
-          Join us for bright, uncomplicated, veg-forward cooking in one of our
-          warm and laid-back dining rooms, or on our newly redone back patio.
-          We now have cocktails!
+          Join us for dinner in one of our warm and laid-back dining rooms, or
+          on our newly redone back patio. We price our wines to be enjoyed, and
+          we now have cocktails!
         </p>
       </div>
       <ContentsCarousel />
