@@ -11,9 +11,8 @@ export default function Contents() {
     >
       <div className="pt-24 px-4 pb-0">
         <p className="text-base leading-5 text-black max-w-prose">
-          Join us for dinner in one of our warm and laid-back dining rooms, or
-          on our newly redone back patio. We price our wines to be enjoyed, and
-          we now have cocktails!
+          Neighborhood Italian. Convivial dining rooms, covered patio. Wines
+          priced for enjoyment. Stirred cocktails. Distinctive amari.
         </p>
       </div>
       <ContentsCarousel />
